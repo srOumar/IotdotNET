@@ -24,7 +24,7 @@ controller.RegisterCallbackForPinValueChangedEvent(
 
 await Task.Delay(Timeout.Infinite);
 
-void OnButtonEvent(object sender, PinValueChangedEventArgs args)
+async void OnButtonEvent(object sender, PinValueChangedEventArgs args)
 {
     await Task.Delay(DebounceDelayMs);
     if (args.ChangeType == PinEventTypes.Falling)
