@@ -3,7 +3,8 @@ using System.Device.Gpio;
 using System.Threading.Tasks;
 
 const int PinButton = 24;
-const int PinLed = 23;   
+const int PinLed = 23;
+const int DebounceDelayMs = 50;
 
 using var controller = new GpioController();
 
@@ -25,7 +26,7 @@ await Task.Delay(Timeout.Infinite);
 
 void OnButtonEvent(object sender, PinValueChangedEventArgs args)
 {
-
+    await Task.Delay(DebounceDelayMs);
     if (args.ChangeType == PinEventTypes.Falling)
     {
         controller.Write(PinLed, PinValue.High);
