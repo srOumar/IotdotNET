@@ -1,0 +1,6 @@
+C:\Users\MyPC\Documents\projet pc\BlinkTutorial\bin\Release\net9.0\publish\BlinkTutorial.exe
+C:\Users\MyPC\Documents\projet pc\BlinkTutorial\bin\Release\net9.0\publish\BlinkTutorial.dll
+C:\Users\MyPC\Documents\projet pc\BlinkTutorial\bin\Release\net9.0\publish\BlinkTutorial.deps.json
+C:\Users\MyPC\Documents\projet pc\BlinkTutorial\bin\Release\net9.0\publish\BlinkTutorial.runtimeconfig.json
+C:\Users\MyPC\Documents\projet pc\BlinkTutorial\bin\Release\net9.0\publish\BlinkTutorial.pdb
+C:\Users\MyPC\Documents\projet pc\BlinkTutorial\bin\Release\net9.0\publish\System.Device.Gpio.dll
