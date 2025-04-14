@@ -25,7 +25,7 @@ await Task.Delay(Timeout.Infinite);
 
 void OnButtonEvent(object sender, PinValueChangedEventArgs args)
 {
-
+controller.Write(PinLed, PinValue.High);
     if (args.ChangeType == PinEventTypes.Rising)
     {
         controller.Write(PinLed, PinValue.High);
