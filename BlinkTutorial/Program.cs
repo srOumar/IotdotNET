@@ -13,7 +13,7 @@ controller.OpenPin(PinLed, PinMode.Output);
 
 
 Console.WriteLine(
-    $"({DateTime.Now}) État initial du bouton : {(controller.Read(PinButton) == PinValue.Low ? "Pressé" : "Relâché")}");
+    $"({DateTime.Now}) État initial du bouton : {(controller.Read(PinButton) == PinValue.High ? "Pressé" : "Relâché")}");
 
 // Callback appelé à chaque changement d’état du bouton
 controller.RegisterCallbackForPinValueChangedEvent(
@@ -25,6 +25,7 @@ await Task.Delay(Timeout.Infinite);
 
 void OnButtonEvent(object sender, PinValueChangedEventArgs args)
 {
+
     if (args.ChangeType == PinEventTypes.Rising)
     {
         controller.Write(PinLed, PinValue.High);
