@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 ﻿
+=======
+>>>>>>> 669e8860a8e1bf6de72e4482f170f7a0690225f7
 using System;
 using System.Device.Gpio;
 using System.Threading.Tasks;
