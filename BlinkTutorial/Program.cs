@@ -8,7 +8,7 @@ const int PinLed = 23;
 using var controller = new GpioController();
 
 
-controller.OpenPin(PinButton, PinMode.InputPullUp); 
+controller.OpenPin(PinButton, PinMode.Input); 
 controller.OpenPin(PinLed, PinMode.Output);       
 
 
@@ -23,16 +23,15 @@ controller.RegisterCallbackForPinValueChangedEvent(
 
 await Task.Delay(Timeout.Infinite);
 
-static void OnButtonEvent(object sender, PinValueChangedEventArgs args)
+void OnButtonEvent(object sender, PinValueChangedEventArgs args)
 {
-    var controller = (GpioController)sender;
 
-    if (args.ChangeType == PinEventTypes.Falling)
+    if (args.ChangeType == PinEventTypes.Rising)
     {
         controller.Write(PinLed, PinValue.High);
         Console.WriteLine($"({DateTime.Now}) LED allumée");
     }
-    else if (args.ChangeType == PinEventTypes.Rising)
+    else if (args.ChangeType == PinEventTypes.Falling)
     {
         controller.Write(PinLed, PinValue.Low);
         Console.WriteLine($"({DateTime.Now}) LED éteinte");
