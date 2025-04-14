@@ -23,17 +23,26 @@ controller.RegisterCallbackForPinValueChangedEvent(
 
 await Task.Delay(Timeout.Infinite);
 
+DateTime lastEventTime = DateTime.MinValue;
+readonly TimeSpan debounceDelay = TimeSpan.FromMilliseconds(200);
+
 void OnButtonEvent(object sender, PinValueChangedEventArgs args)
 {
+    var now = DateTime.Now;
+    if ((now - lastEventTime) < debounceDelay)
+    {
+        return; // Ignore l'événement trop rapproché
+    }
+    lastEventTime = now;
 
     if (args.ChangeType == PinEventTypes.Falling)
     {
         controller.Write(PinLed, PinValue.High);
-        Console.WriteLine($"({DateTime.Now}) LED allumée");
+        Console.WriteLine($"({now}) LED allumée");
     }
     else if (args.ChangeType == PinEventTypes.Rising)
     {
         controller.Write(PinLed, PinValue.Low);
-        Console.WriteLine($"({DateTime.Now}) LED éteinte");
+        Console.WriteLine($"({now}) LED éteinte");
     }
 }
