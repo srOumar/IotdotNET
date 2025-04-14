@@ -8,7 +8,7 @@ const int PinLed = 23;
 using var controller = new GpioController();
 
 
-controller.OpenPin(PinButton, PinMode.Input); 
+controller.OpenPin(PinButton, PinMode.InputPullDown); 
 controller.OpenPin(PinLed, PinMode.Output);       
 
 
@@ -36,5 +36,4 @@ void OnButtonEvent(object sender, PinValueChangedEventArgs args)
         controller.Write(PinLed, PinValue.Low);
         Console.WriteLine($"({DateTime.Now}) LED éteinte");
     }
-    Thread.Sleep(100);
 }
