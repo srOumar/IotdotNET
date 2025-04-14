@@ -36,4 +36,5 @@ void OnButtonEvent(object sender, PinValueChangedEventArgs args)
         controller.Write(PinLed, PinValue.Low);
         Console.WriteLine($"({DateTime.Now}) LED éteinte");
     }
+    Thread.Sleep(100);
 }
